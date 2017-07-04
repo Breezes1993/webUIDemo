@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" href="css/frozen.css"/>
+
+    <link rel="stylesheet" href="css/base.css"/>
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css"/>
+
+
+    <script type="text/javascript" src="js/echarts.js">
+    </script>
+    <script type="text/javascript" src="js/base.js">
+    </script>
+    <script src="lib/zepto.min.js"></script>
+    <script type="text/javascript" src="js/frozen.js">
+    </script>
+    <script type="text/javascript" src="js/swiper-3.4.2.jquery.min.js">
+    </script>
+    <!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js">
+    </script> -->
+
+
+    <script type="text/javascript">
+
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+        });
+
+    </script>
+
+    <style>
+        header i:before {
+            display: inline-block;
+            vertical-align: middle;
+            content:"";
+            /*margin-top:0.2rem;*/
+            background: url("./img/back-icon.jpg");
+            width: 0.5rem;
+            height:0.6rem;
+            background-size:100% 100%;
+        }
+        #main{
+            background-image: none;
+            background-color: #F8F8F8;
+        }
+        article{
+            width: 100%;
+            background:#fff;
+        }
+        article section{
+            width: 100%;
+            background: #fff;
+        }
+        article section h3{
+            margin: 0;
+            padding: 0;
+            height:0.8rem;
+            line-height: 0.8rem;
+            text-align: left;
+            padding-left:0.3rem;
+            width: 100%;
+            color:#B3B3B3;
+            background-color: #F8F8F8;
+
+        }
+        article section ul{
+            width: 100%;
+            background-color: #fff;
+        }
+        article section ul .box {
+            width: 1.8rem;
+            padding-top:0.2rem;
+            height: 2rem;
+            float: left;
+
+            background-color: #fff;
+        }
+        article section ul .box .icon {
+            width: 1rem;
+            height: 1rem;
+            background: url("./img/icons1.jpg");
+            background-size:100% 100%;
+            margin-left: 0.4rem;
+
+            background-color: black;
+        }
+        article section ul .box span {
+            width: 100%;
+            height: 0.3rem;
+            display: inline-block;
+            margin-top:0.1rem;
+            text-align: center;
+            color:#9B9B9B;
+            font-size:0.3rem;
+        }
+    </style>
+</head>
+<body>
+<input type="hidden" id="consNo" value="${consNo }"/>
+<header>
+    <i class="" style="width:1.5rem;position:absolute;top:0rem;left:0;margin-left:0.3rem;">返回</i>
+    暂停
+
+</header>
+
+<main id="main" style="overflow: scroll">
+    <img src="./img/baseDian.jpg" alt="" style="width:100%;">
+</main>
+
+
+</div>
+
+</body>
+
+<script>
+    $(function() {
+    	var consNo = $("#consNo").val();
+//         function getUrl() {
+//             var url = window.location.href;
+//             var name = url.match(/\?id=[\S]*/);
+//             name = name ? name[0].slice(4) : name;
+
+//             return name;
+//         }
+//         var pageIndex = getUrl() || 1;
+
+        $("header i ").tap(function() {
+//             window.location.href = "./index.html?id="+pageIndex;
+            window.location.href = "showConsPage?consNo="+consNo;
+        })
+    })
+</script>
+
+
+</html>
+<!--<script type="text/javascript" src="js/index.js">-->
+<!--</script>-->
+

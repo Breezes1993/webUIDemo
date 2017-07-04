@@ -1,0 +1,69 @@
+body {
+    background: url("../img/entry_bg.jpg") no-repeat;
+    background-size:100% 100%;
+}
+.content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.content .box {
+    background: url("../img/entry_box.png") no-repeat;
+    background-size:100% 100%;
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+
+}
+.content .box li{
+    height:0.3rem;
+    line-height:0.3rem;
+}
+.content .box .tree{
+    width: 60%;
+    height:100%;
+    margin-left:-60%;
+    overflow: hidden;
+    /*background-color: red;*/
+}
+.content .box .people {
+    background: url("../img/entry_people.png") no-repeat;
+    width: 2rem;
+    height: 3rem;
+    /*background-color: red;*/
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background-size: 100% 100%;
+    margin-left: -1rem;
+    margin-bottom:-1.8rem;
+}
+
+.content .company{
+    /*background: red;*/
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top:0.6rem;
+    padding-left:0.4rem;
+    left:0;
+    padding-right:0.1rem;
+    overflow: hidden;
+}
+
+.txtMarquee-top,.txtMarquee-top .bd,.txtMarquee-top .tempWrap{
+    width: 100% ;
+    height: 100% !important;
+}
+
+.txtMarquee-top .infoList li {
+    overflow: hidden;
+    height:0.8rem;
+    font-size:0.25rem;
+}
+
+#jstree_demo_div ul li{
+    font-size:0.1rem;
+}

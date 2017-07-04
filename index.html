@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">     
+    <title>你用电，我用心</title>
+    <link rel="stylesheet" href="css/frozen.css"/>
+
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css"/>
+
+
+    <script type="text/javascript" src="js/echarts.js">
+    </script>
+    <script type="text/javascript" src="js/base.js">
+    </script>
+    <script src="lib/zepto.min.js"></script>
+    <script type="text/javascript" src="js/frozen.js">
+    </script>
+    <script type="text/javascript" src="js/swiper-3.4.2.jquery.min.js">
+    </script>
+
+
+    <script type="text/javascript">
+
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+        });
+
+    </script>
+    <style>
+        .hid{
+            display:none;
+        }
+    </style>
+</head>
+<body class="hid">
+<input type="hidden" id="consNo" value="${consNo }">
+<div class="ui-dialog tip-dialog chart-dialog" id="chartRate" >
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+
+            <p class="tipP">两种电价计算电费明细</p>
+            <div class="chartDv" id="chartRateA"></div>
+            <span class="closed">×</span>
+        </div>
+        <div class="ui-dialog-ft ui-btn-group">
+            <button type="button" data-role="button" class="select showExpect" >立即办理</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="ui-dialog tip-dialog chart-dialog" id="chartPrice" >
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+
+            <p class="tipP">两种电价计算电费明细</p>
+            <div class="chartDv" id="chartPriceA"></div>
+            <span class="closed">×</span>
+        </div>
+        <div class="ui-dialog-ft ui-btn-group">
+            <button type="button" data-role="button" class="select showExpect"  >立即办理</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="ui-dialog tip-dialog" id="suggest" >
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+
+           <div class="tipImg"></div>
+            <p class="tipP">建议办理容量改需量业务</p>
+            <span class="closed">×</span>
+        </div>
+        <div class="ui-dialog-ft ui-btn-group">
+        <button type="button" data-role="button" class="select" >立即办理</button>
+            <button type="button" data-role="button" class="select" >客户经理</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="ui-dialog tip-dialog" id="expect" >
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+
+            <p class="tipP">功能尚未开通，敬请期待</p>
+            <div class="tipImg"></div>
+            <span class="closed">×</span>
+        </div>
+        <div class="ui-dialog-ft ui-btn-group">
+            <button type="button" data-role="button" class="select" >我知道了</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="ui-dialog" id="goto">
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+           	<span id="subtext">请检查电容器及自动补偿装置是否正常运行，如有疑问可咨询客户经理</span>
+            <span class="closed">×</span>
+        </div>
+    </div>
+</div>
+<div class="ui-dialog" id="effect">
+
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div>
+                            <h4 align="center">所在行业排名</h4>
+                            <div class="title">
+                                <p>你已超过 <b class="num1">0</b>%的</p>
+                                <p class="filltext">××××××××××企业</p>
+
+                            </div>
+                            <center>
+                                <div align="center" id="line1" style="height:3rem;width:100%;">
+
+                                </div>
+                            </center>
+                            <div class="pro">
+                                <div><h5>*功率因数:</h5></div>
+                                <div class="dv">用电设备的有功功率与视在功率的比值，表示用电设备的用电效率</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <h4 align="center">所在行业排名</h4>
+                            <div class="title">
+                                <p>你已超过 <b class="num2">0</b>%的</p>
+                                <p class="filltext">××××××××××企业</p>
+
+                            </div>
+                            <center>
+                                <div align="center" id="line2" style="height:3rem;width:100%"></div>
+                            </center>
+                            <div class="pro">
+                                <div><h5>*谷占比:</h5></div>
+                                <div class="dv">谷时刻用电量占总电量的比值，表示用电时段的集中程度</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <h4 align="center">所在行业排名</h4>
+                            <div class="title">
+                                <p>你已超过 <b class="num3">0</b>%的</p>
+                                <p class="filltext">××××××××××企业</p>
+
+                            </div>
+                            <center>
+                                <div align="center" id="line3" style="height:3rem;width:100%"></div>
+                            </center>
+                            <div class="pro" >
+                                <div><h5>*负载率:</h5></div>
+                                <div class="dv">在统计期内最大需量与运行容量的比值，表示运行状态配电变压器的使用</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div id="pagination-s" class="swiper-pagination"></div>
+
+            </div>
+            <span class="closed">×</span>
+        </div>
+    </div>
+</div>
+<header class="index" id="doubleRow">
+    <i class="home"></i><i class="back"></i>
+    <span id="company">××××××××××</span>  <br />
+    	<span id="in" style="font-weight: bold;">电力IN数</span>
+    
+</header>
+
+<main id="main">
+    <article id="article">
+
+
+        <section id="gauge">
+            <div id="dashboard" style="height:90%">
+            </div>
+
+
+            <div class="buttons">
+                <button id="btn1" data-role="button">&nbsp;&nbsp;了解分&nbsp;&nbsp;</button>
+                <button id="detail1">影响因素</button>
+
+            </div>
+        </section>
+        <section id="chart">
+            <p class="firstP">
+                您有潜力节省<b id="money">0</b>元电费，想知道 么？
+            </p>
+            <p>
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg  ui-btn-primary" id="uButton">
+                    了&nbsp;&nbsp;解
+                </button>
+            </div>
+            <p>
+        </section>
+
+        <section id="detail">
+            <table style="height:100%;width:100%;border-spacing:0;">
+                <tr style="height:100%;width:100%">
+                    <td width="30%">
+                        <div style="height:100%;width:100%;" id="pm">
+
+                            <p class="prices pm1" style="color:#43DBB5;">0.00</p>
+                            <p class="title">本行业</p>
+
+                            <p class="prices pm2" style="color:#CBF932;">
+                                0.00
+                            </p>
+
+                            <p class="title">
+                                本企业
+                            </p>
+
+                            <p class="up"><i></i> <span class="pm3">0.00</span></p>
+
+
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div id="category" style="height:100%"></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+
+    </article>
+</main>
+
+
+</div>
+
+</body>
+
+
+<!--了解分-->
+<div class="ui-dialog" id="pointDetail">
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+
+            <div>
+                <h3 align="center">分数详情</h3>
+                <div class="tip">战胜了 <b id="radarNum">0</b>%的企业<i></i></div>
+                <center>
+                    <div align="center" id="radarChart" style="height:200px;width:100%"></div>
+                </center>
+                <div class="line">
+                    <img id="lineFlash" src="./img/lineFlash.png" alt="" style="width:0.3rem;position:absolute;left:2rem;top:-2px;">
+                    <div class="linenum line0">0</div>
+                    <div class="linenum line60">60</div>
+                    <div class="linenum line80">80</div>
+                    <div class="linenum line90">90</div>
+                    <div class="linenum line100">100</div>
+                </div>
+            </div>
+            <span class="closed">×</span>
+        </div>
+    </div>
+</div>
+
+<div class="ui-dialog" id="updateDetail">
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+            <div id="fly">
+                <div class="fly">
+                    <p>正在全面提升得分</p>
+                </div>
+                <div class="ui-progress" id="process">
+                    <span style="width:1%;"></span>
+                </div>
+            </div>
+
+            <div id="fly_next">
+                <h5 align="center" style="font-size:0.28rem;margin-top:0.2rem;text-align: left;"><strong>以下几个方面可以提高得分，或<a href="#" style="color:#6BD6A8;">联系我们</a></strong></h5>
+                <p class="fontGray">马上给您的指数提高分数吧</p>
+                <hr size=1 width=100%></hr>
+                <div class="content">
+                    <ul id="lists">
+                    </ul>
+                </div>
+
+
+            </div>
+            <span class="closed">×</span>
+        </div>
+    </div>
+</div>
+
+
+</html>
+<script type="text/javascript" src="js/index.js">
+</script>
